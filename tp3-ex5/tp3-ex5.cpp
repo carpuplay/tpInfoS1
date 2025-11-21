@@ -32,9 +32,10 @@ using namespace std::chrono;       // system_clock, seconds, milliseconds
 int main() {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Début variables
-    char choix;
-    bool repeter = true;
+    int x = 0;
+    int y = 0;
     int n = 0;
+    int s = 0;
 
     // Fin variables
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,22 +44,21 @@ int main() {
         cout << "Sense Hat initialization Ok." << endl;
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Début instructions
-        senseSetRGBpixel(n,0,255,0,0);
-
-        do{
-            cout << "ON allume un autre pixel?" << endl;
-            cin >> choix;
-            if (choix == 'N'){
-                repeter = false;
-            } else if (choix != 'O')
-            {
-                cout << "Erreur";
-            }else{
-                senseSetPixel(n+1,0,255,0,0);
-                n++;
+        
+        for (n=0; n<8; n++){
+            s = n;
+            for (y=0; y<=n; y++){
+        
+                for(x=0; x<=s; x++){
+                    senseSetRGBpixel(x,y,255,0,0);
+                } 
+                s= s-1;
             }
+            sleep_for(milliseconds(500));
+        }
 
-        } while ( repeter == true && n<8);
+        
+            
         // Fin instructions
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         cout << "Press joystick button to quit." << endl;

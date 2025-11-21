@@ -52,14 +52,14 @@ int main() {
                 repeter = false;
             } else if (choix != 'O')
             {
-                cout << "Erreur";
+                cout << "Erreur" << endl;
             }else{
                 senseSetPixel(n+1,0,255,0,0);
                 senseSetPixel(n,0,255,255,0);
                 n++;
             }
 
-        } while ( repeter == true);
+        } while ( repeter == true && n<8);
         // Fin instructions
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         cout << "Press joystick button to quit." << endl;
